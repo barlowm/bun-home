@@ -1,3 +1,19 @@
+# Custom Home page
+
+This page developed using a merger of the **Vue 3 Dynamic Components** and the **Vue 3 + Bun Content Manager** repositories developed with the assistance of **GitHub CoPilot**.
+
+I wanted to try and see how well CoPilot worked at generating a web site, and it took a LOT of iterations to get what I wanted (probably way more than it would have taken me to code directly, but it's been a long time since I coded in Vue and I thought this might be a way to get back into working with Vue code.)
+
+First off the content to be displayed is divided up into multiple HTML file snippets which are stripped of leading spaces, concatenated into a single line which then becomes the individual .txt files in the **src/config** folder
+
+
+
+
+
+
+
+----
+
 # Vue 3 Dynamic Components
 
 A Vue 3 application that automatically generates Vue components from text configuration files.

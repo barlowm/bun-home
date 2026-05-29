@@ -1,12 +1,14 @@
 {
-  "name": "vue3-dynamic-components",
+  "name": "my-vue-app",
   "version": "1.0.0",
   "description": "Vue 3 application with dynamically built components from text files",
+  "private": true,
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "node scripts/build-components.js && vite",
+    "components": "node scripts/build-components.js && vite",
     "build": "node scripts/build-components.js && vite build",
+    "dev": "vite",
     "preview": "vite preview",
     "generate-components": "node scripts/build-components.js"
   },
@@ -15,6 +17,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
-    "vite": "^8.0.14"
-  }
+    "vite": "^8.0.14",
+    "@types/bun": "latest"
+    },
+  "peerDependencies": {
+   	"typescript": "^5"
+   }
 }
