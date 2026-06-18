@@ -1,5 +1,0 @@
-title:Features
-description:Key features of this application
-content:Components are generated automatically whenever you change configuration files
-bgColor1:#f093fb
-bgColor2:#f5576c

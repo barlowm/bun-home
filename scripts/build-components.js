@@ -1,19 +1,60 @@
 import fs from 'fs';
+import { readFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const componentsDir = path.join(__dirname, '../src/components');
-const configDir = path.join(__dirname, '../src/config');
-const outputDir = path.join(__dirname, '../src/generated');
+const DataFile = path.join(__dirname, '../src/content/data.json');
 
-// Ensure output directory exists
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
+
+
+
+const jsonData = await readNodeJSON(DataFile);
+if (jsonData) {
+  // Ensure output directory exists
+  const outputDir = path.join(__dirname, '../src/generated');
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+    console.log("Created OutputDir");
+  }
+  else {
+    console.log("OutputDir already exists");  
+  }
+  ProcData(jsonData);
+  console.log("Exit");
 }
 
-// Read all .txt config files
-const configFiles = fs.readdirSync(configDir).filter(f => f.endsWith('.txt'));
+/**
+ *  Creaate a VUE object for each element in the JSON Data array
+ * @param {*} jsonData 
+ */
+function ProcData (jsonData) {
+  jsonData.forEach((item, index) => {
+    console.log ("Title: ",item.title, "\nIndex: ", index);
+
+
+
+
+
+
+
+  })
+}
+
+
+function genVueModule(data) {
+  
+
+
+}
+/**
+ *    // Read all .txt config files
+  
+ */
+
+/**
+ * 
 
 configFiles.forEach(file => {
   const configPath = path.join(configDir, file);
@@ -36,9 +77,42 @@ configFiles.forEach(file => {
   fs.writeFileSync(outputPath, componentContent);
   console.log(`✓ Generated: ${componentName}.vue`);
 });
+ */
 
+
+
+async function readNodeJSON(filePath) {
+  try {
+    const fileContent = await readFile(filePath, 'utf-8');
+    const data = JSON.parse(fileContent);
+    return data;
+  } catch (error) {
+    console.error('Error reading file:', error);
+  }
+  return null;
+}
+
+
+/**
+ * This function returns a complete .VUE file consisting of:
+ *  Template
+ *  Script
+ *  Style
+ * elements
+ * @param {*} config - JSON object consisting of the following elements:
+ *      title
+ *      description
+ *      generatedDate
+ *      path2Content
+ *      bgColor1 - Not used at this time
+ *      bgColor2 - Not used at this time
+ * @param {*} name - ???
+ * @returns 
+ */
 function generateVueComponent(config, name) {
-  return `<template>
+  console.log("function generateVueComponent()")
+  return (
+`<template>
   <div class="component-${name.toLowerCase()}">
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
@@ -87,7 +161,7 @@ h2 {
   opacity: 0.8;
 }
 </style>
-`;
+`);
 }
 
 console.log('Component generation complete!');

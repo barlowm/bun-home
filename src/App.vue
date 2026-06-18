@@ -62,14 +62,32 @@ const scrollToSection = (sectionId) => {
   contentPanel.value?.scrollToSection(sectionId);
 };
 
+/** 
+ *  When the app is being opened the individual components must be loaded
+ *  The 3 main components (Header, Sidebar, Content) are loaded as part of the tamplate above
+ *  Those components are constant and always available
+ *  This module loads the dynamic modules for navigation in the Sidebar and display in the Content components
+ *  For the dynamic components a JSON file is read which contains info on the generated components
+ *
+ *  [
+ *     {
+ *        "id": 1,
+ *        "title": "Daily Info.. See hidden comment",
+ *        "content": "DailyInfo.html",
+ *        "Comment": "https://jsonformatter.org/html-pretty-print"
+ *       },
+ *  ]
+
+
+ **/
 onMounted(() => {
   console.log("=== Component Loading ===");
   let debug = "";
 
   // cyclomatic complexity value of 2
   try {
-    //    console.log(`✅ Successfully loaded ${loadedComponents.value.length} components`);
-    //    debug += `\n✅ Successfully loaded ${loadedComponents.value.length} components`;
+    console.log(`✅ Successfully loaded ${loadedComponents.value.length} components`);
+    debug += `\n✅ Successfully loaded ${loadedComponents.value.length} components`;
   } catch (error) {
     console.error("❌ Error loading components:", error);
     debug = `❌ Error: ${error.message}\n${error.stack}`;

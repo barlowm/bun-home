@@ -10,7 +10,8 @@
     "build": "node scripts/build-components.js && vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "generate-components": "node scripts/build-components.js"
+    "generate-components": "node scripts/build-components.js",
+    "gen": "node scripts/build-components.js"
   },
   "dependencies": {
     "vue": "^3.5.34"

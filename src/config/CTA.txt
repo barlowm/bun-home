@@ -1,5 +1,0 @@
-title:Call to Action
-description:Ready to get started?
-content:Modify the .txt files in src/config/ and run npm run generate-components
-bgColor1:#4facfe
-bgColor2:#00f2fe

@@ -1,0 +1,18 @@
+[
+    {
+        "order" : "1",
+        "title" : "Daily Information",
+        "description" : "This information is purely moot",
+        "path2Content" : "DailyInfo.html",
+        "bgColor1" : "N/A",
+        "bgColor2" : "N/A"
+    },
+    {
+        "order" : "2",
+        "title" : "T-Mobile Info",
+        "description" : "This information is purely moot",
+        "path2Content" : "T-MobileInfo.html",
+        "bgColor1" : "N/A",
+        "bgColor2" : "N/A"
+    }    
+]
